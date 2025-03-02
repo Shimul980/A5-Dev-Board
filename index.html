@@ -64,7 +64,7 @@
 
               <div>
                 <p class="font-semibold text-sm">Task Assiged</p>
-                <h4 class="font-bold text-lg counter" id="taskCount">06</h4>
+                <h4 class="font-bold text-lg counter" id="taskCount">6</h4>
               </div>
             </div>
 
@@ -342,12 +342,12 @@
           "mb-2"
         );
         taskLog.textContent =
-          "You have completed the task" +
+          "You have completed the task " +
           taskText +
-          " - Completed at 1:26:53 AM";
+          " Completed at 1:26:53 AM";
         completedBtn.appendChild(taskLog);
-
-        Tasks--;
+        
+        --Tasks;
         document.getElementById("taskCount").textContent = Tasks;
 
         alert("Board uploaded successfully");
