@@ -19,7 +19,9 @@
   </head>
   <body class="px-8 py-2 bg-blue-100">
     <header>
-      <nav class="shadow-md p-4 bg-white rounded-lg">
+      <nav
+        class="shadow-md p-4 bg-blur bg-blue-100 rounded-lg fixed top-1 left-2 right-2 z-10"
+      >
         <div class="flex justify-between">
           <div class="flex items-center space-x-2">
             <img class="h-7" src="./assets/logo.png" alt="" />
@@ -38,6 +40,7 @@
               type="button"
               id="themeBtn"
               class="rounded-full bg-slate-100 p-1.5"
+              title="Change Theme"
             >
               <img class="h-9" src="./assets/theme-btn.png" alt="" />
             </button>
@@ -47,7 +50,7 @@
     </header>
 
     <main
-      class="md:flex md:justify-between mt-4 rounded-md bg-none gap-x-4 mb-8"
+      class="md:flex md:justify-between rounded-md bg-none gap-x-4 mb-8 pt-24"
     >
       <div class="bg-white mt-3 rounded-lg flex-col h-full mb-8 pb-7 gap-7">
         <div class="bg-white p-4 rounded-lg mt-3 gap-y-5 flex-col">
@@ -127,7 +130,7 @@
             <p class="bg-white h-fit w-fit rounded-md p-2 text-sm mb-2">
               Soft Pay
             </p>
-            <h4 class="font-bold task" id="task01">Add Pay Success Modal</h4>
+            <h4 class="font-bold task" id="task02">Add Pay Success Modal</h4>
             <p class="text-sm font-thin text-slate-500 bg-white rounded-md p-2">
               A card component has a figure, a body part, and inside body there
               are title and actions parts....
@@ -153,7 +156,7 @@
             id="taskBox"
           >
             <p class="bg-white h-fit w-fit rounded-md p-2 text-sm mb-2">Meta</p>
-            <h4 class="font-bold task" id="task01">add new reaction</h4>
+            <h4 class="font-bold task" id="task03">add new reaction</h4>
             <p class="text-sm font-thin text-slate-500 bg-white rounded-md p-2">
               A card component has a figure, a body part, and inside body there
               are title and actions parts....
@@ -181,7 +184,7 @@
             <p class="bg-white h-fit w-fit rounded-md p-2 text-sm mb-2">
               Programming Hero
             </p>
-            <h4 class="font-bold task" id="task01">Fix Video Loading Issue</h4>
+            <h4 class="font-bold task" id="task04">Fix Video Loading Issue</h4>
             <p class="text-sm font-thin text-slate-500 bg-white rounded-md p-2">
               A card component has a figure, a body part, and inside body there
               are title and actions parts....
@@ -209,7 +212,7 @@
             <p class="bg-white h-fit w-fit rounded-md p-2 text-sm mb-2">
               Google LLC
             </p>
-            <h4 class="font-bold task" id="task01">Integrate AI search</h4>
+            <h4 class="font-bold task" id="task05">Integrate AI search</h4>
             <p class="text-sm font-thin text-slate-500 bg-white rounded-md p-2">
               A card component has a figure, a body part, and inside body there
               are title and actions parts....
@@ -237,7 +240,7 @@
             <p class="bg-white h-fit w-fit rounded-md p-2 text-sm mb-2">
               Polygon Tech
             </p>
-            <h4 class="font-bold task" id="task01">Review Ami Probashi Site</h4>
+            <h4 class="font-bold task" id="task06">Review Ami Probashi Site</h4>
             <p class="text-sm font-thin text-slate-500 bg-white rounded-md p-2">
               A card component has a figure, a body part, and inside body there
               are title and actions parts....
@@ -276,8 +279,8 @@
           </button>
         </div>
         <div
-          id="completedBox"
-          class="border-t-2 border-dashed h-full w-full completed-box"
+          id="completedBtn"
+          class="border-t-2 border-dashed h-full w-full"
         ></div>
       </div>
     </main>
@@ -312,13 +315,13 @@
           });
       });
 
-      let countUpdate = 23;
-      let remainingTasks = 6;
+      let Tasks = 6;
+      let countUp = 23;
 
       function completeTask(button) {
         let task = button.parentElement.parentElement;
         let taskText = task.querySelector("h4").textContent;
-        let completedBox = document.getElementById("completedBox");
+        let completedBtn = document.getElementById("completedBtn");
 
         button.textContent = "Completed";
         button.classList.add(
@@ -328,8 +331,8 @@
         );
         button.disabled = true;
 
-        let newTask = document.createElement("p");
-        newTask.classList.add(
+        let taskLog = document.createElement("p");
+        taskLog.classList.add(
           "text-black",
           "font-semibold",
           "text-sm",
@@ -338,27 +341,29 @@
           "bg-white",
           "mb-2"
         );
-        newTask.textContent ='You have completed the task' + taskText + " - Completed at 1:26:53 AM";
-        completedBox.appendChild(newTask);
+        taskLog.textContent =
+          "You have completed the task" +
+          taskText +
+          " - Completed at 1:26:53 AM";
+        completedBtn.appendChild(taskLog);
 
-        remainingTasks--;
-        document.getElementById("taskCount").textContent = remainingTasks;
+        Tasks--;
+        document.getElementById("taskCount").textContent = Tasks;
 
         alert("Board uploaded successfully");
 
-        if (remainingTasks === 0) {
+        if (Tasks === 0) {
           alert("congrates!!! You have completed all the current task");
         }
       }
 
       function clearCompleted() {
-        document.getElementById("completedBox").innerHTML = "";
+        document.getElementById("completedBtn").innerHTML = "";
       }
 
-      let count = 23;
       function increaseCount() {
-        count++;
-        document.getElementById("counter").textContent = count;
+        countUp++;
+        document.getElementById("counter").textContent = countUp;
       }
     </script>
   </body>
